@@ -1,12 +1,16 @@
+import { useDispatch } from 'react-redux';
 import { LiItem } from './ContactsItem.styled';
+import { deleteContact } from '../../redux/contactsSlice';
 
-export const ContactsItem = ({ item, onDelete }) => {
+export const ContactsItem = ({ item: { id, name, number } }) => {
+  const dispatch = useDispatch();
+  // console.log('id', id);
   return (
     <LiItem>
       <span>
-        {item.name} {item.number}
+        {name} {number}
       </span>
-      <button onClick={() => onDelete(item.id)}>Delete</button>
+      <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
     </LiItem>
   );
 };

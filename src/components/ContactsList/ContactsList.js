@@ -1,10 +1,13 @@
 import { ContactsItem } from 'components/ContactsItem/ContactsItem';
+import { selectContacts } from '../../redux/selectors';
+import { useSelector } from 'react-redux';
 
-export const ContactsList = ({ items, onDelete }) => {
+export const ContactsList = () => {
+  const contacts = useSelector(selectContacts);
   return (
     <ul>
-      {items.map(item => (
-        <ContactsItem item={item} onDelete={onDelete} key={item.id} />
+      {contacts.map(contact => (
+        <ContactsItem key={contact.id} item={contact} />
       ))}
     </ul>
   );
