@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 // if (!filter) {
 //   return;
 // }
-
+//
 // const filteredItems = contacts.filter(item => {
 //   const hasName = item.name.toLowerCase().includes(filter.toLowerCase());
 //   return hasName;
