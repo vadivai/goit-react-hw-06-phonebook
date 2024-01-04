@@ -2,12 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const filterSlice = createSlice({
   name: 'filt',
-  initialState: {
-    filter: '',
-  },
+  initialState: '',
   reducers: {
     filteredContacts(state, { payload }) {
-      return payload; // правильно ли это? где связь со state, почему неактивен?
+      return payload; // связь со state, почему неактивен
     },
   },
 });

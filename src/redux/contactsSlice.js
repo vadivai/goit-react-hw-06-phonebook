@@ -1,13 +1,12 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const contactsSlice = createSlice({
   name: 'cont',
   initialState: {
-    items: [{ name: 'Вадим', number: '0507338593', id: 1 }],
+    items: [],
   },
   reducers: {
     addContact(state, { payload }) {
-      payload = { ...payload, id: nanoid() };
       // console.log('payload add', payload);
       state.items.push(payload);
     },
