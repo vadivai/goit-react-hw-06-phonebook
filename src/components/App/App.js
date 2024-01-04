@@ -4,16 +4,13 @@ import { FormAddContact } from 'components/FormAddContact/FormAddContact';
 import { Section } from './App.styled';
 import { Filter } from 'components/Filter/Filter';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from '../../redux/selectors';
+import {
+  selectContacts,
+  selectFilter,
+  selectState,
+} from '../../redux/selectors';
 
 export const App = () => {
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
-  const filteredItems = contacts.filter(item => {
-    const hasName = item.name.toLowerCase().includes(filter.toLowerCase());
-    return hasName;
-  });
-
   // Создай действия сохранения и удаления контакта, а также обновления фильтра
 
   return (
@@ -26,9 +23,7 @@ export const App = () => {
         <h3>Contacts</h3>
         <Filter />
         <Wrapper>
-          {filteredItems.length > 0 && (
-            <ContactsList>ContactsList</ContactsList>
-          )}
+          <ContactsList>ContactsList</ContactsList>
         </Wrapper>
       </Section>
     </>
